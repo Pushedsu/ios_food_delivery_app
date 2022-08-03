@@ -128,19 +128,22 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                     IconAndTextWidget(
                                         icon: Icons.circle_sharp,
                                         text: 'Normal',
-                                        iconColor: AppColors.iconColor1
+                                        iconColor: AppColors.iconColor1,
+                                        sizeBoxWidth: Dimensions.width1,
                                     ),
                                     SizedBox(width: Dimensions.width10,),
                                     IconAndTextWidget(
                                       icon: Icons.location_on,
                                       text: '1.7km',
                                       iconColor: AppColors.mainColor,
+                                      sizeBoxWidth: Dimensions.width1,
                                     ),
                                     SizedBox(width: Dimensions.width10,),
                                     IconAndTextWidget(
                                         icon: Icons.access_time_rounded,
                                         text: '32min',
-                                        iconColor: AppColors.iconColor2
+                                        iconColor: AppColors.iconColor2,
+                                        sizeBoxWidth: Dimensions.width1,
                                     ),
                                     SizedBox(width: Dimensions.width10,),
                                   ],

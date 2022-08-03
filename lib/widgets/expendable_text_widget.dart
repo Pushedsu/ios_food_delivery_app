@@ -4,19 +4,20 @@ import 'package:food_delivery/widgets/small_text.dart';
 
 import '../utils/dimensions.dart';
 
-class ExpendableTextWidget extends StatefulWidget{
+class ExpandableTextWidget extends StatefulWidget{
   final String text;
-  const ExpendableTextWidget({Key? key,required this.text}) : super(key: key);
+  const ExpandableTextWidget({Key? key,required this.text}) : super(key: key);
 
   @override
-  State<ExpendableTextWidget> createState() => _ExpendableTextWidgetState();
+  State<ExpandableTextWidget> createState() => _ExpandableTextWidgetState();
 }
 
-class _ExpendableTextWidgetState extends State<ExpendableTextWidget> {
+class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   late String firstHalf;
   late String secondHalf;
+
   bool hiddenText=true;
-  double textHeight=Dimensions.screenHeight/6.04; //화면에 표시된 크기 보고 다시 설정 100<x<200
+  double textHeight=Dimensions.screenHeight/4.9;
 
   @override
   void initState() {
@@ -34,10 +35,10 @@ class _ExpendableTextWidgetState extends State<ExpendableTextWidget> {
   Widget build(BuildContext context) {
     return Container(
       //텍스트가 적을 때 상황
-      child: secondHalf.isEmpty?SmallText(height:1.8,color:AppColors.paraColor,size:Dimensions.iconsize16,text: firstHalf):Column(
+      child: secondHalf.isEmpty?SmallText(height:1.8,color:AppColors.paraColor,size:Dimensions.font16,text: firstHalf):Column(
         children: [
           //텍스트가 길때 상황
-          SmallText(height: 1.8,color:AppColors.paraColor,size:Dimensions.font16,text: hiddenText?(firstHalf+"..."):(firstHalf+secondHalf)),
+          SmallText(height: 1.8,color:AppColors.paraColor,size:Dimensions.font16,overflow:TextOverflow.visible,text: hiddenText?(firstHalf+"..."):(firstHalf+secondHalf)),
           //container 위젯에는 별도의 제스터 기능을 제공하지 않아 inkwell 위젯을 통해 제스쳐 기능을 추가
           InkWell(
             onTap: (){

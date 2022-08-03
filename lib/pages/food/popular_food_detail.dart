@@ -40,8 +40,8 @@ class PopularFoodDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.arrow_back_ios),
-                AppIcon(icon: Icons.shopping_cart_outlined),
+                AppIcon(icon: Icons.arrow_back_ios,backgroundColor: Colors.white,),
+                AppIcon(icon: Icons.shopping_cart_outlined,backgroundColor: Colors.white),
               ],
             ),
           ),
@@ -66,9 +66,10 @@ class PopularFoodDetail extends StatelessWidget {
                     AppColumn(text: "Korean Food"),
                     SizedBox(height: Dimensions.height20,),
                     BigText(text: "Introduce"),
-                    SizedBox(height: Dimensions.height20,),
+                    SizedBox(height: Dimensions.height10,),
                     //긴 텍스트를 넣어야할 위치
-                    Expanded(child:SingleChildScrollView(child:ExpendableTextWidget(text: "Looooong TextField Index"),) )
+                    ExpandableTextWidget(text: "Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text "),
+                    //Expanded(child:SingleChildScrollView(child:ExpendableTextWidget(text: "Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text "),), )
                   ],
                 ),
               ),
@@ -105,7 +106,7 @@ class PopularFoodDetail extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top: Dimensions.height30,bottom: Dimensions.height30,left: Dimensions.width20,right: Dimensions.width20),
+              padding: EdgeInsets.only(top: Dimensions.height20,bottom: Dimensions.height20,left: Dimensions.width20,right: Dimensions.width20),
               child: BigText(text:"\$10 Add to cart",color: Colors.white,),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/widgets/big_text.dart';
-
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/expendable_text_widget.dart';
@@ -55,7 +54,7 @@ class RecommendedFoddDetail extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  child: ExpendableTextWidget(text: "Loooooong Text"),
+                  child: ExpandableTextWidget(text: "Loooooong Text"),
                   margin: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20),
 
                 ),

@@ -18,6 +18,7 @@ class Dimensions{
   static double height40 = screenHeight/19.6;
 
   //dynamtic width margin and padding
+  static double width1 = screenWidth/392.7;
   static double width10 = screenWidth/39.3;
   static double width15 = screenWidth/26.2;
   static double width20 = screenWidth/19.6;
@@ -44,7 +45,7 @@ class Dimensions{
   static double listViewTextContSize = screenWidth/3.92;
 
   //popular food
-  static double popularFoodImgSize = screenHeight/1.12;
+  static double popularFoodImgSize = screenHeight/2.24;
 
   //bottom height
   static double bottomHeightBar = screenHeight/6.54;
