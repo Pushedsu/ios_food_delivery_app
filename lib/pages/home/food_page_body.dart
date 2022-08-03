@@ -2,10 +2,10 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
+import 'package:food_delivery/widgets/app_column.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
 import 'package:food_delivery/widgets/icon_and_text_widget.dart';
-import 'package:food_delivery/utils/dimensions.dart';
 
 class FoodPageBody extends StatefulWidget {
 
@@ -89,8 +89,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   children: [
                     //image section
                     Container(
-                      width: 120,
-                      height: 120,
+                      width: Dimensions.listViewImgSize,
+                      height: Dimensions.listViewImgSize,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(Dimensions.radius15),
                           image: DecorationImage(
@@ -104,7 +104,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     //text section
                     Expanded(
                         child: Container(
-                          height: 100,
+                          height: Dimensions.listViewTextContSize,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                               topRight: Radius.circular(Dimensions.radius20),
@@ -216,48 +216,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: Dimensions.height15,right: Dimensions.width10,left: Dimensions.width10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: 'Breakfast Food'),
-                    SizedBox(height: Dimensions.height10,), //사이 빈공간을 넣기 위해서...
-                    Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(5, (index) => Icon(Icons.star, color: AppColors.mainColor,)),
-                        ),
-                        SizedBox(height: Dimensions.height10,width: Dimensions.width10,),
-                        SmallText(text: '4.5',),
-                        SizedBox(height: Dimensions.height10, width: Dimensions.width10,),
-                        SmallText(text: '1287 Comments',),
-                      ],
-                    ),
-                    SizedBox(height: Dimensions.height15,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndTextWidget(
-                            icon: Icons.circle_sharp,
-                            text: 'Normal',
-                            iconColor: AppColors.iconColor1
-                        ),
-                        SizedBox(width: Dimensions.width10,),
-                        IconAndTextWidget(
-                            icon: Icons.location_on,
-                            text: '1.7km',
-                            iconColor: AppColors.mainColor,
-                        ),
-                        SizedBox(width: Dimensions.width10,),
-                        IconAndTextWidget(
-                            icon: Icons.access_time_rounded,
-                            text: '32min',
-                            iconColor: AppColors.iconColor2
-                        ),
-                        SizedBox(width: Dimensions.width10,),
-                      ],
-                    ),
-                  ],
-                ),
+                child: AppColumn(text:  "Korean Food",),
               ),
             ),
           )

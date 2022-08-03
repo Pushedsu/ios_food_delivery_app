@@ -24,7 +24,9 @@ class Dimensions{
   static double width30 = screenWidth/13.1;
   static double width40 = screenWidth/9.81;
 
+  //font size
   static double font12 = screenHeight/65.5;
+  static double font16 = screenHeight/49.1;
   static double font20 = screenHeight/39.3;
   static double font25 = screenHeight/31.4;
 
@@ -35,10 +37,18 @@ class Dimensions{
 
   //icon size
   static double iconsize24 = screenHeight/32.7;
+  static double iconsize16 = screenHeight/49.1;
 
   //listview size
-  static double listViewImgSize = screenWidth/3.92;
+  static double listViewImgSize = screenWidth/3.27;
+  static double listViewTextContSize = screenWidth/3.92;
 
   //popular food
-  //static double popularFoodImgSize = screenHeight/;
+  static double popularFoodImgSize = screenHeight/1.12;
+
+  //bottom height
+  static double bottomHeightBar = screenHeight/6.54;
+
+  //SliverImage height
+  static double sliverAppBarImageHeight = screenHeight/2.61;
 }
