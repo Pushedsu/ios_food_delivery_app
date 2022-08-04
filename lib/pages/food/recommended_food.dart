@@ -3,10 +3,10 @@ import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
-import '../../widgets/expendable_text_widget.dart';
+import '../../widgets/expandable_text_widget.dart';
 
-class RecommendedFoddDetail extends StatelessWidget {
-  const RecommendedFoddDetail({Key? key}) : super(key: key);
+class RecommendedFoodDetail extends StatelessWidget {
+  const RecommendedFoodDetail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +14,19 @@ class RecommendedFoddDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
+          SliverAppBar (
             toolbarHeight: 80,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
-                AppIcon(icon: Icons.shopping_cart_outlined),
+                AppIcon(icon: Icons.clear,backgroundColor:Colors.white),
+                AppIcon(icon: Icons.shopping_cart_outlined,backgroundColor: Colors.white,),
               ],
             ),
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(20),
               child: Container(
-                color: Colors.white,
-                child: Center(child: BigText(size: Dimensions.font25,text: 'Sliver App Bar',),),
+                child: Center(child: BigText(size: Dimensions.font25,text: 'Korean Food',),),
                 width: double.maxFinite, //화면 너비 최대로 확대
                 padding: EdgeInsets.only(top:5,bottom: 10),
                 decoration: BoxDecoration(
@@ -40,7 +39,7 @@ class RecommendedFoddDetail extends StatelessWidget {
               ),
             ),
             pinned: true,
-            backgroundColor: AppColors.yellowColor, //image asset과 비슷한 컬러 다시 설정
+            backgroundColor: AppColors.mainColor,
             expandedHeight: Dimensions.sliverAppBarImageHeight,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
@@ -54,7 +53,7 @@ class RecommendedFoddDetail extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  child: ExpandableTextWidget(text: "Loooooong Text"),
+                  child: ExpandableTextWidget(text: "1. Hangover stew (해장국) Given South Korea's dedicated drinking culture, it's not surprising that its hangover-curing culture is equally as developed, from pre-drinking drinks to post-drinking drinks to a glorious array of spicy and steamy stews and soups.Made from a beef broth, with cabbage, bean sprouts, radish and chunks of congealed ox blood, the deeply satisfying taste does wonders to kick-start your sluggish brain in the morning. satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning."),
                   margin: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20),
 
                 ),
@@ -102,23 +101,18 @@ class RecommendedFoddDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: Dimensions.height20,bottom: Dimensions.height20, left: Dimensions.width20,right: Dimensions.width20),
+                  padding: EdgeInsets.only(top: Dimensions.height20,bottom: Dimensions.height20, left: Dimensions.width15,right: Dimensions.width15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
                     color: Colors.white,
                   ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.remove,color: AppColors.signColior,),
-                      SizedBox(width: Dimensions.width10/2,),
-                      BigText(text: "0"),
-                      SizedBox(width: Dimensions.width10/2,),
-                      Icon(Icons.add,color: AppColors.signColior,)
-                    ],
-                  ),
+                  child: Icon(
+                    Icons.favorite,
+                    color: AppColors.mainColor,
+                  )
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: Dimensions.height30,bottom: Dimensions.height30,left: Dimensions.width20,right: Dimensions.width20),
+                  padding: EdgeInsets.only(top: Dimensions.height20,bottom: Dimensions.height20,left: Dimensions.width20,right: Dimensions.width20),
                   child: BigText(text:"\$10 Add to cart",color: Colors.white,),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),

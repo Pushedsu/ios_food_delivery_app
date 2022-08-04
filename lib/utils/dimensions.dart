@@ -51,5 +51,5 @@ class Dimensions{
   static double bottomHeightBar = screenHeight/6.54;
 
   //SliverImage height
-  static double sliverAppBarImageHeight = screenHeight/2.61;
+  static double sliverAppBarImageHeight = screenHeight/3.14;
 }
