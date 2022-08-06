@@ -3,14 +3,17 @@ import 'package:get/get.dart';
 class ApiClient extends GetConnect implements GetxService{
   late String token;
   final String appBaseUrl;
+
   //Map은 쉽게 말해 key-value 쌍으로 이뤄진 객체
   late Map<String, String> _mainHeaders;
+
   ApiClient({ required this.appBaseUrl}) {
     baseUrl = appBaseUrl;
     timeout = Duration(seconds: 30);
+    token="";
     _mainHeaders={
       'Content-type':'application/json; charset=UTF-8',
-      'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token',
     };
   }
   Future<Response> getData(String uri, ) async{

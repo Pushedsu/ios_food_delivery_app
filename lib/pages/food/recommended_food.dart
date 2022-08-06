@@ -30,11 +30,11 @@ class RecommendedFoodDetail extends StatelessWidget {
                 width: double.maxFinite, //화면 너비 최대로 확대
                 padding: EdgeInsets.only(top:5,bottom: 10),
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(Dimensions.radius20),
-                    topRight: Radius.circular(Dimensions.radius20),
-                  )
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(Dimensions.radius20),
+                      topRight: Radius.circular(Dimensions.radius20),
+                    )
                 ),
               ),
             ),

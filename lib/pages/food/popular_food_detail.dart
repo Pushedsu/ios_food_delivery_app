@@ -68,8 +68,8 @@ class PopularFoodDetail extends StatelessWidget {
                     BigText(text: "Introduce"),
                     SizedBox(height: Dimensions.height10,),
                     //긴 텍스트를 넣어야할 위치
-                    ExpandableTextWidget(text: "Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text "),
-                    //Expanded(child:SingleChildScrollView(child:ExpendableTextWidget(text: "Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text "),), )
+                    //ExpandableTextWidget(text: "Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text "),
+                    Expanded(child:SingleChildScrollView(child:ExpandableTextWidget(text: "Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text Long Text "),), )
                   ],
                 ),
               ),
