@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/controllers/popular_product_controller.dart';
 import 'package:food_delivery/pages/food/popular_food_detail.dart';
 import 'package:food_delivery/pages/food/recommended_food.dart';
 import 'package:food_delivery/pages/home/main_food_page.dart';
@@ -12,9 +13,11 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}): super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
+    Get.find<PopularProductController>().getPopularProductList();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Delivery App',
