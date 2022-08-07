@@ -6,18 +6,18 @@ import 'package:food_delivery/widgets/small_text.dart';
 import 'package:food_delivery/pages/home/food_page_body.dart';
 import 'package:get/get.dart';
 
-class Food_Main_page extends StatefulWidget {
+class FoodMainpage extends StatefulWidget {
 
   @override
-  State<Food_Main_page> createState() => _Food_Main_pageState();
+  State<FoodMainpage> createState() => _FoodMainpageState();
 }
 
-class _Food_Main_pageState extends State<Food_Main_page> {
+class _FoodMainpageState extends State<FoodMainpage> {
 
   @override
   Widget build(BuildContext context) {
-    print('current height is '+MediaQuery.of(context).size.height.toString());
-    print('current height is '+MediaQuery.of(context).size.width.toString());
+    //print('current height is '+MediaQuery.of(context).size.height.toString());
+    //print('current height is '+MediaQuery.of(context).size.width.toString());
     return Scaffold(
       body: Column(
         children: [

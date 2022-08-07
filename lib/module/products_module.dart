@@ -18,9 +18,10 @@ class Product {
     _typeId=json['type_id'];
     _offset=json['offset'];
     if(json['products']!=null) {
+      //_products는 비어있지만 null은 아님
       _products =<ProductModel>[];
       json['products'].forEach((v){
-        _products!.add(ProductModel.fromJson(v));
+        _products.add(ProductModel.fromJson(v));
       });
     }
   }
