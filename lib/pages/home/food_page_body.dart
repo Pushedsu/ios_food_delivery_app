@@ -22,7 +22,8 @@ class FoodPageBody extends StatefulWidget {
 }
 
 class _FoodPageBodyState extends State<FoodPageBody> {
-  PageController pageController = PageController(viewportFraction: 0.85); //페이지 이동 컨트롤러 viewportFractoin 이전 이후 페이지의 모습이 어느정도 보일지 설정
+  //페이지 이동 컨트롤러 viewportFractoin 이전 이후 페이지의 모습이 어느정도 보일지 설정
+  PageController pageController = PageController(viewportFraction: 0.85);
   var _currPageValue=0.0;
   double _ScaleFactor=0.8;
   double _height=Dimensions.pageViewContainer;
@@ -38,7 +39,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     });
   }
   @override
-  void dispose() { //상태 종료
+  //상태 종료
+  void dispose() {
     pageController.dispose();
   }
   @override
@@ -77,7 +79,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Container(
           margin: EdgeInsets.only(left: Dimensions.width30),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end, //crossAxis는 주축의 반대인 횡축의 레이아웃을 관여한다.
+            //crossAxis는 주축의 반대인 횡축의 레이아웃을 관여한다.
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               BigText(text: 'Recommended',color: AppColors.mainBlackColor,),
               SizedBox(width: Dimensions.width10,),
@@ -212,7 +215,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           GestureDetector(
             onTap: (){
-              Get.toNamed(RouteHelper.getPopularFood());
+              Get.toNamed(RouteHelper.getPopularFood(index));
             },
             child: Container(
               height: Dimensions.pageViewContainer,

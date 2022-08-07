@@ -40,8 +40,8 @@ class _FoodMainpageState extends State<FoodMainpage> {
                   ],
                 ),
                 Container(
-                  width: 40,
-                  height: 45,
+                  width: Dimensions.width40,
+                  height: Dimensions.height40,
                   child: Icon(Icons.search,color: Colors.white,size: Dimensions.iconsize24,),
                   decoration: BoxDecoration(
                     color: AppColors.mainColor,
