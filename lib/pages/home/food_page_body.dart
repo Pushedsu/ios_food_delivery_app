@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/popular_product_controller.dart';
 import 'package:food_delivery/module/products_module.dart';
+import 'package:food_delivery/utils/app_constants.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/app_column.dart';
@@ -42,15 +43,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         //slider section
         GetBuilder<PopularProductController>(builder: (popularProducts){
-          return Container(
+          return popularProducts.isLoaded?Container(
             //color: Colors.redAccent, //뒷 배경 컨테이너 범위 확인용
             height: Dimensions.pageView,
             child: PageView.builder(
                 controller: pageController,
                 itemCount: popularProducts.popularProductList.length,
                 itemBuilder: (context,position) {
-                  return _buildPageItem(position);
+                  return _buildPageItem(position,popularProducts.popularProductList[position]);
                 }),
+          ):CircularProgressIndicator(
+            color: AppColors.mainColor,
           );
         }),
         GetBuilder<PopularProductController>(builder: (popularProducts){
@@ -226,7 +229,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: Dimensions.height15,right: Dimensions.width10,left: Dimensions.width10),
-                child: AppColumn(text:  "Korean Food",),
+                child: AppColumn(text:  popularProduct.name!,),
               ),
             ),
           )
