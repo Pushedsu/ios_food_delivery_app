@@ -1,6 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/popular_product_controller.dart';
+import 'package:food_delivery/controllers/recommended_product_controller.dart';
+import 'package:food_delivery/data/repository/recommended_product_repo.dart';
 import 'package:food_delivery/module/products_module.dart';
 import 'package:food_delivery/utils/app_constants.dart';
 import 'package:food_delivery/utils/colors.dart';
@@ -75,7 +77,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end, //crossAxis는 주축의 반대인 횡축의 레이아웃을 관여한다.
             children: [
-              BigText(text: 'Popular',color: AppColors.mainBlackColor,),
+              BigText(text: 'Recommended',color: AppColors.mainBlackColor,),
               SizedBox(width: Dimensions.width10,),
               Container(
                 child: BigText(text: ".", color: AppColors.textColor,),
@@ -89,84 +91,88 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
         SizedBox(height: Dimensions.height30,),
-        ListView.builder(
+        GetBuilder<RecommendedProductController>(builder: (recommendedProducts){
+          return recommendedProducts.isLoaded?ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemCount: 10,itemBuilder: (context,index){
-              return Container(
-                margin: EdgeInsets.only(left: Dimensions.width10,right: Dimensions.width20, bottom: Dimensions.height10),
-                child: Row(
-                  children: [
-                    //image section
-                    Container(
-                      width: Dimensions.listViewImgSize,
-                      height: Dimensions.listViewImgSize,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(Dimensions.radius15),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                  "images/food_image1.png"
-                              )
-                          )
-                      ),
+            return Container(
+              margin: EdgeInsets.only(left: Dimensions.width10,right: Dimensions.width20, bottom: Dimensions.height10),
+              child: Row(
+                children: [
+                  //image section
+                  Container(
+                    width: Dimensions.listViewImgSize,
+                    height: Dimensions.listViewImgSize,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Dimensions.radius15),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                                "images/food_image1.png"
+                            )
+                        )
                     ),
-                    //text section
-                    Expanded(
-                        child: Container(
-                          height: Dimensions.listViewTextContSize,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimensions.radius20),
-                              bottomRight: Radius.circular(Dimensions.radius15)
-                            ),
-                            color: Colors.white,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(left: Dimensions.width10,right: Dimensions.width10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                  //text section
+                  Expanded(
+                    child: Container(
+                      height: Dimensions.listViewTextContSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Dimensions.radius20),
+                            bottomRight: Radius.circular(Dimensions.radius15)
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: Dimensions.width10,right: Dimensions.width10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BigText(text: 'Nutritious fruit meal in Korean'),
+                            SizedBox(height: Dimensions.height10,),
+                            SmallText(text: 'With Korean characteristics'),
+                            SizedBox(height: Dimensions.height10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                BigText(text: 'Nutritious fruit meal in Korean'),
-                                SizedBox(height: Dimensions.height10,),
-                                SmallText(text: 'With Korean characteristics'),
-                                SizedBox(height: Dimensions.height10,),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    IconAndTextWidget(
-                                        icon: Icons.circle_sharp,
-                                        text: 'Normal',
-                                        iconColor: AppColors.iconColor1,
-                                        sizeBoxWidth: Dimensions.width1,
-                                    ),
-                                    SizedBox(width: Dimensions.width10,),
-                                    IconAndTextWidget(
-                                      icon: Icons.location_on,
-                                      text: '1.7km',
-                                      iconColor: AppColors.mainColor,
-                                      sizeBoxWidth: Dimensions.width1,
-                                    ),
-                                    SizedBox(width: Dimensions.width10,),
-                                    IconAndTextWidget(
-                                        icon: Icons.access_time_rounded,
-                                        text: '32min',
-                                        iconColor: AppColors.iconColor2,
-                                        sizeBoxWidth: Dimensions.width1,
-                                    ),
-                                    SizedBox(width: Dimensions.width10,),
-                                  ],
+                                IconAndTextWidget(
+                                  icon: Icons.circle_sharp,
+                                  text: 'Normal',
+                                  iconColor: AppColors.iconColor1,
+                                  sizeBoxWidth: Dimensions.width1,
                                 ),
+                                SizedBox(width: Dimensions.width10,),
+                                IconAndTextWidget(
+                                  icon: Icons.location_on,
+                                  text: '1.7km',
+                                  iconColor: AppColors.mainColor,
+                                  sizeBoxWidth: Dimensions.width1,
+                                ),
+                                SizedBox(width: Dimensions.width10,),
+                                IconAndTextWidget(
+                                  icon: Icons.access_time_rounded,
+                                  text: '32min',
+                                  iconColor: AppColors.iconColor2,
+                                  sizeBoxWidth: Dimensions.width1,
+                                ),
+                                SizedBox(width: Dimensions.width10,),
                               ],
                             ),
-                          ),
+                          ],
                         ),
+                      ),
                     ),
-                  ],
-                ),
-              );
-            }),
+                  ),
+                ],
+              ),
+            );
+          }):CircularProgressIndicator(
+            color: AppColors.mainColor,
+          );
+        }),
       ],
     );
   }
