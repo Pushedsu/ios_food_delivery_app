@@ -10,8 +10,8 @@ class RecommendedProductController extends GetxController{
   RecommendedProductController({required this.recommendedProductRepo});
 
   //제품 리스트를 list로 받기 위해 선언 및 초기화
-  List<dynamic> _recommendedProductList=[];
-  List<dynamic> get recommendedProductList => _recommendedProductList;
+  List<ProductModel> _recommendedProductList=[];
+  List<ProductModel> get recommendedProductList => _recommendedProductList;
 
   bool _isLoaded = false;
   bool get isLoaded=>_isLoaded;

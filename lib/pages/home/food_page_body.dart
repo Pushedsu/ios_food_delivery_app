@@ -103,7 +103,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               itemCount: recommendedProducts.recommendedProductList.length,itemBuilder: (context,index){
             return GestureDetector(
               onTap: (){
-                Get.toNamed(RouteHelper.getRecommendedFood());
+                Get.toNamed(RouteHelper.getRecommendedFood(index));
               },
               child: Container(
                 margin: EdgeInsets.only(left: Dimensions.width10,right: Dimensions.width20, bottom: Dimensions.height10),
@@ -114,6 +114,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       width: Dimensions.listViewImgSize,
                       height: Dimensions.listViewImgSize,
                       decoration: BoxDecoration(
+                          color: AppColors.mainColor, //뒷 배경 컨테이너 범위 확인용
                           borderRadius: BorderRadius.circular(Dimensions.radius15),
                           image: DecorationImage(
                               fit: BoxFit.cover,
@@ -221,6 +222,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               height: Dimensions.pageViewContainer,
               margin: EdgeInsets.only(left: Dimensions.width15,right: Dimensions.width15),
               decoration: BoxDecoration(
+                  color: AppColors.mainColor, //뒷 배경 컨테이너 범위 확인용
                   borderRadius: BorderRadius.circular(Dimensions.radius15), //둥근 형의 위젯 모형을 만들기 위해...
                   image: DecorationImage(
                       fit: BoxFit.cover, //이미지 모양 들어가기 위해...

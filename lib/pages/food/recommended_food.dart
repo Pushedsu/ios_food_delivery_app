@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/controllers/recommended_product_controller.dart';
 import 'package:food_delivery/routes/route_helper.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/expandable_text_widget.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({Key? key}) : super(key: key);
+  final int pageId;
+  const RecommendedFoodDetail({Key? key,required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -34,7 +36,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(20),
               child: Container(
-                child: Center(child: BigText(size: Dimensions.font25,text: 'Korean Food',),),
+                child: Center(child: BigText(size: Dimensions.font25,text: product.name!,),),
                 width: double.maxFinite, //화면 너비 최대로 확대
                 padding: EdgeInsets.only(top:5,bottom: 10),
                 decoration: BoxDecoration(
@@ -50,8 +52,8 @@ class RecommendedFoodDetail extends StatelessWidget {
             backgroundColor: AppColors.mainColor,
             expandedHeight: Dimensions.sliverAppBarImageHeight,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                "images/food_image1.png",
+              background: Image.network(
+                product.img!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -61,7 +63,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  child: ExpandableTextWidget(text: "1. Hangover stew (해장국) Given South Korea's dedicated drinking culture, it's not surprising that its hangover-curing culture is equally as developed, from pre-drinking drinks to post-drinking drinks to a glorious array of spicy and steamy stews and soups.Made from a beef broth, with cabbage, bean sprouts, radish and chunks of congealed ox blood, the deeply satisfying taste does wonders to kick-start your sluggish brain in the morning. satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning.satisfying taste does wonders to kick-start your sluggish brain in the morning."),
+                  child: ExpandableTextWidget(text: product.description!),
                   margin: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20),
 
                 ),
@@ -85,7 +87,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   backgroundColor: AppColors.mainColor,
                   iconColor: Colors.white,
                 ),
-                BigText(text: "\$12.88 "+" X "+" 0 ",color: AppColors.mainColor,size: Dimensions.font25,),
+                BigText(text: "\$ ${product.price!} X 0 ",color: AppColors.mainColor,size: Dimensions.font25,),
                 AppIcon(
                   iconSize: Dimensions.iconsize24,
                   icon: Icons.add,
