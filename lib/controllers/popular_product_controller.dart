@@ -32,8 +32,6 @@ class PopularProductController extends GetxController{
       _popularProductList.addAll(Product.fromJson(response.body).products);
       _isLoaded=true;
       update();
-    } else{
-
     }
   }
 
@@ -58,18 +56,28 @@ class PopularProductController extends GetxController{
     }
   }
 
-  void initProduct(CartController cart){
+  //제품 초기설정
+  void initProduct(ProductModel product,CartController cart){
     _quantity=0;
     _inCartItems=0;
     _cart=cart;
+    var exist=false;
+    //cart에 항목이 있는지 없는지 여부 확인
+    exist = _cart.existInCart(product);
     //if exist
     //get from storage _inCartItems
+    print("exist or not "+exist.toString());
+    if(exist){
+      _inCartItems=_cart.getQuantity(product);
+    }
+    print("the quantity in the cart is "+_inCartItems.toString());
   }
 
   void addItem(ProductModel product){
     if(_quantity>0){
       _cart.addItem(product, quantity);
       _quantity=0;
+      _inCartItems=_cart.getQuantity(product);
       _cart.items.forEach((key, value) {
         print("The id is "+value.id.toString()+" The quantity is "+value.quantity.toString());
       });
